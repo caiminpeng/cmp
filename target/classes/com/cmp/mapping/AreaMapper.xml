@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmp.dao.AreaMapper">
+   	<select id="getProvince" resultType="Area" >  
+        select * from code_area_config where level_type=1
+    </select>
+    <select id="getCity" parameterType="Area" resultType="Area"  >  
+        select * from code_area_config where parent_code=#{parent_code}
+    </select>
+    <select id="getCounty" parameterType="Area" resultType="Area"  >  
+        select * from code_area_config where parent_code=#{parent_code}
+    </select>
+    <select id="selectBycode" parameterType="Area" resultType="Area"  >  
+        select * from code_area_config where code=#{code}
+    </select>
+    
+</mapper>
